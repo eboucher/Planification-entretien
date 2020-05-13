@@ -1,4 +1,4 @@
-package main.java.planification;
+package test.java;
 
 import org.junit.jupiter.api.Test;
 

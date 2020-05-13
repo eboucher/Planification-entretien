@@ -1,4 +1,4 @@
-package main.java.planification;
+package main.java;
 
 /**
  * Hello world!

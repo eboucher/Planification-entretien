@@ -1,3 +1,15 @@
+package use_case.entretien;
+
+import java.util.List;
+
+import model.candidat.Candidat;
+import model.consultant.Consultant;
+import model.salle.Salle;
+import repository.candidat.CandidatRepository;
+import repository.consultant.ConsultantRepository;
+import repository.entretien.EntretienRepository;
+import repository.salle.SalleRepository;
+
 public class PlanifierEntretien {
     
     private CandidatRepository candidatRepository;
@@ -19,7 +31,7 @@ public class PlanifierEntretien {
 
     public void planifier() {
         // GIVEN
-        Candiat candidat = candidatRepository.getCandidatById();
+        Candidat candidat = candidatRepository.getCandidatById();
         List<Consultant> consultantsDisponible = consultantRepository.getConsultantDisponible();
         List<Salle> sallesDisponibles = salleRepository.getSallesDisponible();
         // WHEN
