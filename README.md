@@ -1,4 +1,4 @@
-### Groupe 6 - Florian Richard, Esteban "Lautaro" Boucher, Florian Gouarin  
+### Groupe 6 - Florian Richard, Esteban "PARA LA REVOLUTION" Boucher, Florian Gouarin  
 
 Scenario : Planification d'un entretien  
 GIVEN un candidat, ses disponibilités, ses compétences,  
