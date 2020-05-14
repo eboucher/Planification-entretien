@@ -2,33 +2,23 @@ package infrastructure.candidat;
 
 import java.util.List;
 
+import model.candidat.Candidat;
 import model.candidat.CandidatRepository;
 import model.creneau.Creneau;
 
 public class CandidatFake implements CandidatRepository {
 
     @Override
-    public String getNom() {
+    public Candidat findById(Integer id) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public List<String> getCompetences() {
+    public Candidat save(Candidat objectSaved) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
-    public String getCv() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public List<Creneau> getDisponibilites() {
-        // TODO Auto-generated method stub
-        return null;
-    }
     
 }
