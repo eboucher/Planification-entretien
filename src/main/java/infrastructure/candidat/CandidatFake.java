@@ -1,10 +1,7 @@
 package infrastructure.candidat;
 
-import java.util.List;
-
 import model.candidat.Candidat;
 import model.candidat.CandidatRepository;
-import model.creneau.Creneau;
 
 public class CandidatFake implements CandidatRepository {
 

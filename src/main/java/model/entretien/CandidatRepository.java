@@ -1,6 +1,4 @@
-package model.candidat;
-
-import java.util.List;
+package model.entretien;
 
 import model.common.Repository;
 

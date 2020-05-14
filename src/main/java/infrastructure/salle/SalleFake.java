@@ -20,5 +20,10 @@ public class SalleFake implements SalleRepository {
         return null;
     }
 
+    @Override
+    public List<Salle> getSallesDisponibles(Creneau creneau) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.consultant.Consultant;
 import model.consultant.ConsultantRepository;
+import model.creneau.Creneau;
 
 public class ConsultantFake implements ConsultantRepository {
 
@@ -19,6 +20,10 @@ public class ConsultantFake implements ConsultantRepository {
         return null;
     }
 
-
+    @Override
+    public List<Consultant> findConsultantsDisponibles(Creneau creneau) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }

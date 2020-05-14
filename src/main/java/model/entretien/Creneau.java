@@ -1,8 +1,8 @@
-package model.creneau;
+package model.entretien;
 
 import java.util.Date;
 
-public class Creneau {
+class Creneau {
     private Date startDate;
     private Date endDate;
 

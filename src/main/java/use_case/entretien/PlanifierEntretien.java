@@ -2,14 +2,13 @@ package use_case.entretien;
 
 import java.util.List;
 
-import model.candidat.Candidat;
-import model.consultant.Consultant;
-import model.entretien.Entretien;
-import model.salle.Salle;
-import infrastructure.candidat.CandidatRepository;
-import infrastructure.consultant.ConsultantRepository;
-import infrastructure.entretien.EntretienRepository;
-import infrastructure.salle.SalleRepository;
+import common.dto.candidat.CandidatDto;
+import common.dto.consultant.ConsultantDto;
+import common.dto.salle.SalleDto;
+import model.entretien.CandidatRepository;
+import model.entretien.ConsultantRepository;
+import model.entretien.EntretienRepository;
+import model.entretien.SalleRepository;
 
 public class PlanifierEntretien {
     
@@ -30,16 +29,22 @@ public class PlanifierEntretien {
         this.salleRepository = salleRepository;
     }
 
-    public void planifier() {
+    public void planifier(Integer candidatId, Creneau creneau) {
         // GIVEN
-        Candidat candidat = candidatRepository.getCandidatById();
-        List<Consultant> consultantsDisponible = consultantRepository.getConsultantsDisponible();
-        List<Salle> sallesDisponibles = salleRepository.getSallesDisponible();
+        CandidatDto candidat = candidatRepository.findById(candidatId);
+        List<ConsultantDto> consultantsDisponible = consultantRepository.findConsultantsDisponibles(creneau);
+        List<SalleDto> sallesDisponibles = salleRepository.getSallesDisponibles(creneau);
 
         // WHEN
+        // Passer des dto - Construire les objets metiers dans le constructeur d'entretien
+        // Manipuler l'entité
         Entretien entretien = new Entretien(candidat, consultantsDisponible, sallesDisponibles);
-        // THEN
-        entretienRepository.save(entretien);
-    }
+        entretien.planifier()
 
+        // Mapping l'entité => entity -> dto
+
+
+        // THEN
+        entretienRepository.save(entretien /* dto */);
+    }
 }
