@@ -1,30 +1,9 @@
 package model.consultant;
 
-import java.util.List;
-
 public class Consultant {
-    private String nom;
-    private List<String> competences;
+    ConsultantRepository consultantRepository;
 
-    public Consultant(String nom, List<String> competences) {
-        this.nom = nom;
-        this.competences = competences;
+    public Consultant(ConsultantRepository consultantRepository) {
+        this.consultantRepository = consultantRepository;
     }
-
-    public String getNom() {
-        return this.nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public List<String> getCompetences() {
-        return this.competences;
-    }
-
-    public void setCompetences(List<String> competences) {
-        this.competences = competences;
-    }
-
 }

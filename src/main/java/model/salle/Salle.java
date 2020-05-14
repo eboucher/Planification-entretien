@@ -1,21 +1,11 @@
 package model.salle;
 
-import java.util.List;
-import model.creneau.Creneau;
-
 public class Salle {
-    private List<Creneau> disponibilites;
 
-    public Salle(List<Creneau> disponibilites) {
-        this.disponibilites = disponibilites;
-    }
+    SalleRepository salleRepository;
 
-    public List<Creneau> getDisponibilites() {
-        return this.disponibilites;
-    }
-
-    public void setDisponibilites(List<Creneau> disponibilites) {
-        this.disponibilites = disponibilites;
+    public Salle(SalleRepository salleRepository) {
+        this.salleRepository = salleRepository;
     }
 
 }
