@@ -6,6 +6,11 @@ public class Creneau {
     private Date startDate;
     private Date endDate;
 
+    public Creneau(Date startDate, Date endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public Date getStartDate() {
         return this.startDate;
     }

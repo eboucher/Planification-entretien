@@ -6,6 +6,11 @@ public class Consultant {
     private String nom;
     private List<String> competences;
 
+    public Consultant(String nom, List<String> competences) {
+        this.nom = nom;
+        this.competences = competences;
+    }
+
     public String getNom() {
         return this.nom;
     }

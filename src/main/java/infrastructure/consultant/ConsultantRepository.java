@@ -1,4 +1,4 @@
-package model.consultant;
+package infrastructure.consultant;
 
 import infrastructure.repository.Repository;
 import model.consultant.Consultant;

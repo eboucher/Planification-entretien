@@ -6,10 +6,10 @@ import model.candidat.Candidat;
 import model.consultant.Consultant;
 import model.entretien.Entretien;
 import model.salle.Salle;
-import repository.candidat.CandidatRepository;
-import repository.consultant.ConsultantRepository;
-import repository.entretien.EntretienRepository;
-import repository.salle.SalleRepository;
+import infrastructure.candidat.CandidatRepository;
+import infrastructure.consultant.ConsultantRepository;
+import infrastructure.entretien.EntretienRepository;
+import infrastructure.salle.SalleRepository;
 
 public class PlanifierEntretien {
     

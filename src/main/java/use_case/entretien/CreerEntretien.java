@@ -1,6 +1,6 @@
 package use_case.entretien;
 
-import repository.entretien.EntretienRepository;
+import infrastructure.entretien.EntretienRepository;
 
 public class CreerEntretien {
 

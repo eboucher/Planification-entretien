@@ -6,6 +6,10 @@ import model.creneau.Creneau;
 public class Salle {
     private List<Creneau> disponibilites;
 
+    public Salle(List<Creneau> disponibilites) {
+        this.disponibilites = disponibilites;
+    }
+
     public List<Creneau> getDisponibilites() {
         return this.disponibilites;
     }

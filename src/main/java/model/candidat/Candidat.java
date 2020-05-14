@@ -5,10 +5,17 @@ import java.util.List;
 import model.creneau.Creneau;
 
 public class Candidat {
-    public String nom;
-    public List<String> competences;
-    public String cv;
-    public List<Creneau> disponibilites;
+    private String nom;
+    private List<String> competences;
+    private String cv;
+    private List<Creneau> disponibilites;
+
+    public Candidat(String nom, List<String> competences, String cv, List<Creneau> disponibilites) {
+        this.nom = nom;
+        this.competences = competences;
+        this.cv = cv;
+        this.disponibilites = disponibilites;
+    }
 
     public String getNom() {
         return this.nom;
