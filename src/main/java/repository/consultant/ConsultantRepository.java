@@ -1,5 +1,8 @@
 package repository.consultant;
 
-public class ConsultantRepository {
+import infrastructure.repository.Repository;
+import model.consultant.Consultant;
+
+public class ConsultantRepository extends Repository<Consultant> {
     
 }

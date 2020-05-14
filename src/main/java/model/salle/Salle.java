@@ -1,8 +1,8 @@
 package model.salle;
 
-import java.util.Date;
 import java.util.List;
+import model.creneau.Creneau;
 
 public class Salle {
-    private List<Date> disponibilite;
+    private List<Creneau> disponibilites;
 }

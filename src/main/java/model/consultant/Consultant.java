@@ -1,7 +1,6 @@
 package model.consultant;
 
-import model.personne.Personne;
-
-public class Consultant extends Personne {
-    
+public class Consultant {
+    public String nom;
+    public List<String> competences;
 }

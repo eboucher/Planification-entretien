@@ -1,5 +1,8 @@
 package repository.candidat;
 
-public class CandidatRepository {
+import infrastructure.repository.Repository;
+import model.candidat.Candidat;
+
+public class CandidatRepository extends Repository<Candidat> {
     
 }

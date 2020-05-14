@@ -1,7 +1,12 @@
 package model.candidat;
 
-import model.personne.Personne;
+import java.util.List;
 
-public class Candidat extends Personne {
+import model.creneau.Creneau;
+
+public class Candidat {
+    public String nom;
+    public List<String> competences;
     public String cv;
+    public List<Creneau> disponibilites;
 }

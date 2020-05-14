@@ -1,5 +1,8 @@
 package repository.salle;
 
-public class SalleRepository {
+import infrastructure.repository.Repository;
+import model.salle.Salle;
+
+public class SalleRepository extends Repository<Salle> {
     
 }
