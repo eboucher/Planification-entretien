@@ -2,11 +2,8 @@ package model.candidat;
 
 import java.util.List;
 
-import model.creneau.Creneau;
+import model.common.Repository;
 
-public interface CandidatRepository {
-    String getNom();
-    List<String> getCompetences();
-    String getCv();
-    List<Creneau> getDisponibilites();
+public interface CandidatRepository extends Repository<Candidat> {
+
 }

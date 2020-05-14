@@ -1,9 +1,7 @@
 package model.salle;
 
-import java.util.List;
+import model.common.Repository;
 
-import model.creneau.Creneau;
+public interface SalleRepository extends Repository<Salle>{
 
-public interface SalleRepository {
-    List<Creneau> getDisponibilites();
 }

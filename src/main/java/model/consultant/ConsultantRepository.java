@@ -1,8 +1,7 @@
 package model.consultant;
 
-import java.util.List;
+import model.common.Repository;
 
-public interface ConsultantRepository {
-    String getNom();
-    List<String> getCompetences();
+public interface ConsultantRepository extends Repository<Consultant> {
+    
 }
