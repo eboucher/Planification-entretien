@@ -1,4 +1,4 @@
-package repository.entretien;
+package model.entretien;
 
 import infrastructure.repository.Repository;
 import model.entretien.Entretien;

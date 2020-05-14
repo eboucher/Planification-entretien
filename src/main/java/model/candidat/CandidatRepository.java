@@ -1,4 +1,4 @@
-package repository.candidat;
+package model.candidat;
 
 import infrastructure.repository.Repository;
 import model.candidat.Candidat;

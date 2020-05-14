@@ -1,4 +1,4 @@
-package repository.salle;
+package model.salle;
 
 import infrastructure.repository.Repository;
 import model.salle.Salle;
