@@ -1,29 +1,25 @@
 package infrastructure.salle;
 
-import java.util.List;
+import common.dto.creneau.CreneauDto;
+import common.dto.salle.SalleDto;
+import model.entretien.SalleRepository;
 
-import model.creneau.Creneau;
-import model.salle.Salle;
-import model.salle.SalleRepository;
+import java.util.List;
 
 public class SalleFake implements SalleRepository {
 
     @Override
-    public Salle findById(Integer id) {
-        // TODO Auto-generated method stub
+    public List<SalleDto> getSallesDisponibles(CreneauDto creneau) {
         return null;
     }
 
     @Override
-    public Salle save(Salle objectSaved) {
-        // TODO Auto-generated method stub
+    public SalleDto findById(Integer id) {
         return null;
     }
 
     @Override
-    public List<Salle> getSallesDisponibles(Creneau creneau) {
-        // TODO Auto-generated method stub
+    public SalleDto save(SalleDto objectSaved) {
         return null;
     }
-    
 }

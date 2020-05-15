@@ -1,21 +1,17 @@
 package infrastructure.candidat;
 
-import model.candidat.Candidat;
-import model.candidat.CandidatRepository;
+import common.dto.candidat.CandidatDto;
+import model.entretien.CandidatRepository;
 
 public class CandidatFake implements CandidatRepository {
 
     @Override
-    public Candidat findById(Integer id) {
-        // TODO Auto-generated method stub
+    public CandidatDto findById(Integer id) {
         return null;
     }
 
     @Override
-    public Candidat save(Candidat objectSaved) {
-        // TODO Auto-generated method stub
+    public CandidatDto save(CandidatDto objectSaved) {
         return null;
     }
-
-    
 }

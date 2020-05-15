@@ -1,22 +1,17 @@
 package infrastructure.entretien;
 
-import model.entretien.Entretien;
+import common.dto.entretien.EntretienDto;
 import model.entretien.EntretienRepository;
 
 public class EntretienFake implements EntretienRepository {
 
     @Override
-    public Entretien findById(Integer id) {
-        // TODO Auto-generated method stub
+    public EntretienDto findById(Integer id) {
         return null;
     }
 
     @Override
-    public Entretien save(Entretien objectSaved) {
-        // TODO Auto-generated method stub
+    public EntretienDto save(EntretienDto objectSaved) {
         return null;
     }
-
-
-    
 }

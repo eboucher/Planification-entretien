@@ -1,9 +1,11 @@
 package model.entretien;
 
+import common.dto.candidat.CandidatDto;
+import common.dto.creneau.CreneauDto;
+
 import java.util.List;
 
 class Candidat {
-
     private List<String> competences;
     private String cv;
     private List<Creneau> disponibilites;
@@ -25,5 +27,4 @@ class Candidat {
     public List<Creneau> getDisponibilites() {
         return this.disponibilites;
     }
-
 }

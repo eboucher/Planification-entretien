@@ -1,29 +1,26 @@
 package infrastructure.consultant;
 
-import java.util.List;
+import common.dto.consultant.ConsultantDto;
+import common.dto.creneau.CreneauDto;
+import model.entretien.ConsultantRepository;
 
-import model.consultant.Consultant;
-import model.consultant.ConsultantRepository;
-import model.creneau.Creneau;
+import java.util.List;
 
 public class ConsultantFake implements ConsultantRepository {
 
     @Override
-    public Consultant findById(Integer id) {
-        // TODO Auto-generated method stub
+    public List<ConsultantDto> findConsultantsDisponibles(CreneauDto creneau) {
         return null;
     }
 
     @Override
-    public Consultant save(Consultant objectSaved) {
-        // TODO Auto-generated method stub
+    public ConsultantDto findById(Integer id) {
         return null;
     }
 
     @Override
-    public List<Consultant> findConsultantsDisponibles(Creneau creneau) {
-        // TODO Auto-generated method stub
+    public ConsultantDto save(ConsultantDto objectSaved) {
         return null;
     }
-    
+
 }

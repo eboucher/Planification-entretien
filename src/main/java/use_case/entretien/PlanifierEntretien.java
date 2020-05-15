@@ -4,6 +4,7 @@ import java.util.List;
 
 import common.dto.candidat.CandidatDto;
 import common.dto.consultant.ConsultantDto;
+import common.dto.creneau.CreneauDto;
 import common.dto.salle.SalleDto;
 import model.entretien.CandidatRepository;
 import model.entretien.ConsultantRepository;
@@ -11,7 +12,7 @@ import model.entretien.EntretienRepository;
 import model.entretien.SalleRepository;
 
 public class PlanifierEntretien {
-    
+
     private CandidatRepository candidatRepository;
     private ConsultantRepository consultantRepository;
     private EntretienRepository entretienRepository;
@@ -29,7 +30,7 @@ public class PlanifierEntretien {
         this.salleRepository = salleRepository;
     }
 
-    public void planifier(Integer candidatId, Creneau creneau) {
+    public void planifier(Integer candidatId, CreneauDto creneau) {
         // GIVEN
         CandidatDto candidat = candidatRepository.findById(candidatId);
         List<ConsultantDto> consultantsDisponible = consultantRepository.findConsultantsDisponibles(creneau);

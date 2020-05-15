@@ -1,26 +1,22 @@
 package infrastructure.creneau;
 
-import model.creneau.Creneau;
-import model.creneau.CreneauRepository;
+import common.dto.creneau.CreneauDto;
+import model.entretien.CreneauRepository;
 
 public class CreneauFake implements CreneauRepository {
 
     @Override
-    public Creneau findById(Integer id) {
-        // TODO Auto-generated method stub
+    public CreneauDto findByDate() {
         return null;
     }
 
     @Override
-    public Creneau save(Creneau objectSaved) {
-        // TODO Auto-generated method stub
+    public CreneauDto findById(Integer id) {
         return null;
     }
 
     @Override
-    public Creneau findByDate() {
-        // TODO Auto-generated method stub
+    public CreneauDto save(CreneauDto objectSaved) {
         return null;
     }
-    
 }
