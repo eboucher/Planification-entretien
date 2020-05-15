@@ -4,8 +4,8 @@ import common.dto.creneau.CreneauDto;
 
 public class CreneauMap {
 
-    public static CreneauDto toDto(Creneau entity) {
-        return new CreneauDto(entity.getStartDate(), entity.getEndDate());
+    public static CreneauDto toDto(Creneau creneau) {
+        return new CreneauDto(creneau.getStartDate(), creneau.getEndDate());
     }
 
     public static Creneau toModel(CreneauDto creneauDto) {

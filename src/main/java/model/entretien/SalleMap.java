@@ -8,18 +8,10 @@ import java.util.stream.Collectors;
 
 public class SalleMap {
     public static SalleDto toDto(Salle salle) {
-        List<CreneauDto> creneauDtos = salle.getDisponibilites()
-            .stream()
-            .map(CreneauMap::toDto)
-            .collect(Collectors.toList());
-        return new SalleDto(creneauDtos);
+        return new SalleDto(salle.getDisponibilites());
     }
 
     public static Salle toModel(SalleDto salleDto) {
-        List<Creneau> creneauList = salleDto.getDisponibilites()
-            .stream()
-            .map(CreneauMap::toModel)
-            .collect(Collectors.toList());
-        return new Salle(creneauList);
+        return new Salle(salleDto.getDisponibilites());
     }
 }

@@ -9,20 +9,10 @@ import java.util.stream.Collectors;
 public class CandidatMap {
 
     public static CandidatDto toDto(Candidat candidat) {
-        List<CreneauDto> creneauDtos =
-            candidat.getDisponibilites()
-                .stream()
-                .map(CreneauMap::toDto)
-                .collect(Collectors.toList());
-        return new CandidatDto(candidat.getCompetences(), candidat.getCv(), creneauDtos);
+        return new CandidatDto(candidat.getId(), candidat.getCompetences(), candidat.getCv(), candidat.getDisponibilites());
     }
 
     public static Candidat toModel(CandidatDto candidatDto) {
-        List<Creneau> creneauList =
-            candidatDto.getDisponibilites()
-                .stream()
-                .map(CreneauMap::toModel)
-                .collect(Collectors.toList());
-        return new Candidat(candidatDto.getCompetences(), candidatDto.getCv(), creneauList);
+        return new Candidat(candidatDto.getId(), candidatDto.getCompetences(), candidatDto.getCv(), candidatDto.getDisponibilites());
     }
 }

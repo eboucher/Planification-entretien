@@ -7,5 +7,5 @@ import model.common.Repository;
 import java.util.List;
 
 public interface ConsultantRepository extends Repository<ConsultantDto> {
-    List<ConsultantDto> findConsultantsDisponibles(CreneauDto creneau);
+    List<ConsultantDto> findConsultantsDisponibles(CreneauDto creneau) throws Exception;
 }

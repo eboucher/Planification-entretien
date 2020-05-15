@@ -1,30 +1,31 @@
 package model.entretien;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 class Creneau {
-    private Date startDate;
-    private Date endDate;
+    // TODO: ajouter du metier
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
-    public Creneau(Date startDate, Date endDate) {
+    public Creneau(LocalDateTime startDate, LocalDateTime endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public Date getStartDate() {
-        return this.startDate;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
-        return this.endDate;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
-
 }

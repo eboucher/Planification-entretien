@@ -1,33 +1,35 @@
 package model.entretien;
 
+import common.dto.creneau.CreneauDto;
+
 import java.util.List;
 
 class Candidat {
     private Integer id;
     private List<String> competences;
     private String cv;
-    private List<Creneau> disponibilites;
+    private List<CreneauDto> disponibilites;
 
-    public Candidat(Integer id, List<String> competences, String cv, List<Creneau> disponibilites) {
+    public Candidat(Integer id, List<String> competences, String cv, List<CreneauDto> disponibilites) {
         this.id = id;
         this.competences = competences;
         this.cv = cv;
         this.disponibilites = disponibilites;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public List<String> getCompetences() {
-        return this.competences;
+        return competences;
     }
 
     public String getCv() {
-        return this.cv;
+        return cv;
     }
 
-    public List<Creneau> getDisponibilites() {
-        return this.disponibilites;
-    }
-
-    public Integer getId() {
-        return id;
+    public List<CreneauDto> getDisponibilites() {
+        return disponibilites;
     }
 }

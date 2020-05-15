@@ -1,16 +1,23 @@
 package model.entretien;
 
+import common.dto.creneau.CreneauDto;
+
 import java.util.List;
 
 class Salle {
 
-    private List<Creneau> disponibilites;
+    private Integer id;
+    private List<CreneauDto> disponibilites;
 
-    public Salle(List<Creneau> disponibilites) {
+    public Salle(List<CreneauDto> disponibilites) {
         this.disponibilites = disponibilites;
     }
 
-    public List<Creneau> getDisponibilites() {
-        return this.disponibilites;
+    public Integer getId() {
+        return id;
+    }
+
+    public List<CreneauDto> getDisponibilites() {
+        return disponibilites;
     }
 }

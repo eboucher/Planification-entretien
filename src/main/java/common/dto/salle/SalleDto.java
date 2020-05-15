@@ -5,7 +5,8 @@ import common.dto.creneau.CreneauDto;
 import java.util.List;
 
 public class SalleDto {
-    List<CreneauDto> disponibilites;
+    private Integer id;
+    private List<CreneauDto> disponibilites;
 
     public SalleDto(List<CreneauDto> disponibilites) {
         this.disponibilites = disponibilites;
@@ -17,5 +18,13 @@ public class SalleDto {
 
     public void setDisponibilites(List<CreneauDto> disponibilites) {
         this.disponibilites = disponibilites;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
