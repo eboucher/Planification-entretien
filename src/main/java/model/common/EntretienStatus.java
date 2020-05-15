@@ -1,8 +1,8 @@
 package model.common;
 
 public enum EntretienStatus {
-    CREER,
+    PLANIFIER,
     EN_ATTENTE_CONSULTANT,
     EN_ATTENTE_SALLE,
-    PLANIFIER,
+    ANNULER
 }

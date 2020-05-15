@@ -2,16 +2,14 @@ package use_case.entretien;
 
 import model.entretien.EntretienRepository;
 
-public class AnnulerEntretien {
-
+public class ConfirmerEntretien {
     EntretienRepository entretienRepository;
 
-    public AnnulerEntretien(EntretienRepository entretienRepository) {
+    public ConfirmerEntretien(EntretienRepository entretienRepository) {
         this.entretienRepository = entretienRepository;
     }
 
-    public void annuler() {
+    public void confirmer() {
 
     }
-
 }

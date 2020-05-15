@@ -12,24 +12,30 @@ public class Entretien {
     private int id;
     private EntretienStatus entretienStatus;
     private Candidat candidat;
-    private List<Consultant> consultant;
+    private List<Consultant> consultantsDisponibles;
+    private Consultant consultant;
     private Creneau creneau;
     private ReservationSalle reservationSalle;
 
     public Entretien(CandidatDto candidatDto, List<ConsultantDto> consultantDtos, CreneauDto creneauDto) {
         this.candidat = CandidatMap.toModel(candidatDto);
-        this.consultant = consultantDtos.stream().map(ConsultantMap::toModel).collect(Collectors.toList());
+        this.consultantsDisponibles = consultantDtos.stream().map(ConsultantMap::toModel).collect(Collectors.toList());
         this.creneau = CreneauMap.toModel(creneauDto);
     }
 
     public Entretien(Candidat candidat, List<Consultant> consultant, Creneau creneau) {
         this.candidat = candidat;
-        this.consultant = consultant;
+        this.consultantsDisponibles = consultant;
         this.creneau = creneau;
     }
 
-    public void planifier() {
+    public void planifier() throws Exception {
+        if(0 == consultantsDisponibles.size()) {
+            throw new Exception("");
+        }
 
+        consultant = consultantsDisponibles.get(0);
+        entretienStatus = EntretienStatus.PLANIFIER;
     }
 
     public int getId() {
@@ -44,8 +50,12 @@ public class Entretien {
         return this.candidat;
     }
 
-    public List<Consultant> getConsultant() {
-        return this.consultant;
+    public Consultant getConsultant() {
+        return consultant;
+    }
+
+    public List<Consultant> getConsultantsDisponibles() {
+        return this.consultantsDisponibles;
     }
 
     public Creneau getCreneau() {

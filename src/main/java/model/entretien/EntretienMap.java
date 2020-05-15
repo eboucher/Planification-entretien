@@ -12,7 +12,7 @@ public class EntretienMap {
 
     public static EntretienDto toDto(Entretien entretien) {
         CandidatDto candidatDto = CandidatMap.toDto(entretien.getCandidat());
-        List<ConsultantDto> consultantDtoList = entretien.getConsultant()
+        List<ConsultantDto> consultantDtoList = entretien.getConsultantsDisponibles()
             .stream()
             .map(ConsultantMap::toDto)
             .collect(Collectors.toList());
@@ -22,12 +22,12 @@ public class EntretienMap {
 
     public static Entretien toModel(EntretienDto entretienDto) {
         Candidat candidatList = CandidatMap.toModel(entretienDto.getCandidat());
-        List<Consultant> consultantList = entretienDto.getConsultant()
+        List<Consultant> consultantList = entretienDto.getConsultantsDisponibles()
             .stream()
             .map(ConsultantMap::toModel)
             .collect(Collectors.toList());
         Creneau creneau = CreneauMap.toModel(entretienDto.getCreneau());
         //TODO: id ?
-        return new Entretien(entretienDto.getId(), candidatList, consultantList, creneau);
+        return new Entretien(candidatList, consultantList, creneau);
     }
 }

@@ -13,18 +13,18 @@ public class PlanifierEntretien {
     private CandidatRepository candidatRepository;
     private ConsultantRepository consultantRepository;
     private EntretienRepository entretienRepository;
-    private ReservationSalleRepository salleRepository;
+    private ReservationSalleRepository reservationSalleRepository;
 
     public PlanifierEntretien(
         CandidatRepository candidatRepository,
         ConsultantRepository consultantRepository,
         EntretienRepository entretienRepository,
-        ReservationSalleRepository salleRepository
+        ReservationSalleRepository reservationSalleRepository
     ) {
         this.candidatRepository = candidatRepository;
         this.consultantRepository = consultantRepository;
         this.entretienRepository = entretienRepository;
-        this.salleRepository = salleRepository;
+        this.reservationSalleRepository = reservationSalleRepository;
     }
 
     public void planifier(Integer candidatId, CreneauDto creneauDto) {
@@ -36,7 +36,11 @@ public class PlanifierEntretien {
         // Passer des dto - Construire les objets metiers dans le constructeur d'entretien
         // Manipuler l'entité
         Entretien entretien = new Entretien(candidatDto, consultantsDisponiblesDtos, creneauDto);
-        entretien.planifier();
+        try {
+            entretien.planifier();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
 
         // Mapping l'entité => entity -> dto
         EntretienDto entretienDto = EntretienMap.toDto(entretien);
