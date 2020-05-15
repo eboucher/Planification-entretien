@@ -17,6 +17,7 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
@@ -35,7 +36,7 @@ public class AppTest
     }
 
     @Test
-    public void planifierEntretien() {
+    public void planifierEntretien() throws Exception {
         CandidatFake candidatFake = new CandidatFake();
         ConsultantFake consultantFake = new ConsultantFake();
         EntretienFake entretienFake = new EntretienFake();
@@ -49,9 +50,10 @@ public class AppTest
         );
 
         // Ajouter un candidat dans la bdd
+        UUID candidatId = UUID.randomUUID();
         candidatFake.candidatDtos.add(
             new CandidatDto(
-                1,
+                candidatId.toString(),
                 Arrays.asList("typescript", "go", "erlang"),
                 "",
                 Collections.singletonList(creneauDto)
@@ -59,9 +61,10 @@ public class AppTest
         );
 
         // Ajouter un consultant dans la bdd
+        UUID consultantId = UUID.randomUUID();
         consultantFake.consultantDtos.add(
             new ConsultantDto(
-                1,
+                consultantId.toString(),
                 "Estebain",
                 Arrays.asList("node", "beau parleur", "erlang"),
                 Collections.singletonList(creneauDto)
@@ -69,19 +72,17 @@ public class AppTest
         );
 
         // Ajouter une salle dans la bdd
+        UUID salleId = UUID.randomUUID();
         salleFake.salleDtos.add(
             new SalleDto(
+                salleId.toString(),
                 Collections.singletonList(creneauDto)
             )
         );
 
-        try {
-            planifierEntretien.planifier(1, creneauDto);
-            assertNotNull(entretienFake.entretienDtos.get(0));
-            assertEquals(entretienFake.entretienDtos.get(0));
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+        planifierEntretien.planifier(candidatId, creneauDto);
+        System.out.println(entretienFake.entretienDtos.get(0));
+        assertNotNull(entretienFake.entretienDtos.get(0));
 
     }
 }

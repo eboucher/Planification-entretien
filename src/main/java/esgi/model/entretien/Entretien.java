@@ -5,22 +5,21 @@ import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
 import esgi.model.common.EntretienStatus;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class Entretien implements Serializable {
+public class Entretien {
     private UUID id = UUID.randomUUID();
     private EntretienStatus entretienStatus;
     private Candidat candidat;
     private Creneau creneau;
 
     private List<Consultant> consultantsDisponibles;
-    private Integer consultantId;
+    private Consultant consultant;
 
     // private List<SalleDto> salleDtos;
-    private Integer salleId;
+    private Salle salle;
 
     public Entretien(CandidatDto candidatDto, List<ConsultantDto> consultantDtos, CreneauDto creneauDto) {
         this.candidat = CandidatMap.toModel(candidatDto);
@@ -28,7 +27,8 @@ public class Entretien implements Serializable {
         this.creneau = CreneauMap.toModel(creneauDto);
     }
 
-    public Entretien(Candidat candidat, List<Consultant> consultant, Creneau creneau) {
+    public Entretien(UUID id, Candidat candidat, List<Consultant> consultant, Creneau creneau) {
+        this.id = id;
         this.candidat = candidat;
         this.consultantsDisponibles = consultant;
         this.creneau = creneau;
@@ -42,7 +42,7 @@ public class Entretien implements Serializable {
             .stream()
             .filter(consultant -> consultant.getCompetences().stream().anyMatch(consultantCompetences -> candidat.getCompetences().contains(consultantCompetences)))
             .collect(Collectors.toList());
-        consultantId = consultantDispoCompetent.get(0).getId();
+        consultant = consultantDispoCompetent.get(0);
         entretienStatus = EntretienStatus.PLANIFIER;
     }
 
@@ -50,7 +50,7 @@ public class Entretien implements Serializable {
         this.entretienStatus = EntretienStatus.ANNULER;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -62,10 +62,6 @@ public class Entretien implements Serializable {
         return this.candidat;
     }
 
-    public Integer getConsultantId() {
-        return consultantId;
-    }
-
     public List<Consultant> getConsultantsDisponibles() {
         return this.consultantsDisponibles;
     }
@@ -74,15 +70,11 @@ public class Entretien implements Serializable {
         return creneau;
     }
 
-//    public List<SalleDto> getSalleDtos() {
-//        return salleDtos;
-//    }
-
-    public Integer getSalleId() {
-        return salleId;
+    public Consultant getConsultant() {
+        return consultant;
     }
 
-    public void setSalleId(Integer salleId) {
-        this.salleId = salleId;
+    public Salle getSalle() {
+        return salle;
     }
 }

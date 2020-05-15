@@ -6,16 +6,17 @@ import esgi.model.entretien.EntretienRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class EntretienFake implements EntretienRepository {
 
     public List<EntretienDto> entretienDtos = new ArrayList<>();
 
     @Override
-    public EntretienDto findById(Integer id) throws Exception {
+    public EntretienDto findById(UUID id) throws Exception {
         Optional<EntretienDto> entretienDtoOptional = entretienDtos
             .stream()
-            .filter(entretienDto -> id.equals(entretienDto.getId()))
+            .filter(entretienDto -> id.toString().equals(entretienDto.getId()))
             .findFirst();
         if(entretienDtoOptional.isPresent())
             return entretienDtoOptional.get();

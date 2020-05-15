@@ -16,19 +16,19 @@ public class ConsultantFake implements ConsultantRepository {
         List<ConsultantDto> consultantDtos = this.consultantDtos
             .stream()
             .filter(consultantDto -> consultantDto.getDisponibilites().contains(creneau))
-        .collect(Collectors.toList());
+            .collect(Collectors.toList());
 
-        if(consultantDtos.isEmpty())
+        if(!consultantDtos.isEmpty())
             return consultantDtos;
         else
             throw new Exception("Pas de consultant disponible");
     }
 
     @Override
-    public ConsultantDto findById(Integer id) throws Exception {
+    public ConsultantDto findById(UUID id) throws Exception {
         Optional<ConsultantDto> consultantDtoOptional = consultantDtos
             .stream()
-            .filter(consultantDto -> id.equals(consultantDto.getId()))
+            .filter(consultantDto -> id.toString().equals(consultantDto.getId()))
             .findFirst();
         if(consultantDtoOptional.isPresent())
             return consultantDtoOptional.get();

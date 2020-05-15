@@ -7,6 +7,7 @@ import esgi.model.entretien.SalleRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class SalleFake implements SalleRepository {
@@ -14,10 +15,10 @@ public class SalleFake implements SalleRepository {
     public List<SalleDto> salleDtos = new ArrayList<>();
 
     @Override
-    public SalleDto findById(Integer id) throws Exception {
+    public SalleDto findById(UUID id) throws Exception {
         Optional<SalleDto> salleDtoOptional = salleDtos
             .stream()
-            .filter(salleDto -> id.equals(salleDto.getId()))
+            .filter(salleDto -> id.toString().equals(salleDto.getId()))
             .findFirst();
         if(salleDtoOptional.isPresent())
             return salleDtoOptional.get();

@@ -5,6 +5,8 @@ import esgi.model.entretien.Entretien;
 import esgi.model.entretien.EntretienMap;
 import esgi.model.entretien.EntretienRepository;
 
+import java.util.UUID;
+
 public class AnnulerEntretien {
 
     EntretienRepository entretienRepository;
@@ -13,7 +15,7 @@ public class AnnulerEntretien {
         this.entretienRepository = entretienRepository;
     }
 
-    public void annuler(Integer entretienId) throws Exception {
+    public void annuler(UUID entretienId) throws Exception {
         EntretienDto entretienDto = this.entretienRepository.findById(entretienId);
 
         Entretien entretien = EntretienMap.toModel(entretienDto);
