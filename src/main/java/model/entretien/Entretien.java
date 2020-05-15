@@ -18,7 +18,7 @@ public class Entretien {
     private List<Consultant> consultantsDisponibles;
     private Integer consultantId;
 
-    private List<SalleDto> salleDtos;
+    // private List<SalleDto> salleDtos;
     private Integer salleId;
 
     public Entretien(CandidatDto candidatDto, List<ConsultantDto> consultantDtos, CreneauDto creneauDto) {
@@ -73,9 +73,9 @@ public class Entretien {
         return creneau;
     }
 
-    public List<SalleDto> getSalleDtos() {
-        return salleDtos;
-    }
+//    public List<SalleDto> getSalleDtos() {
+//        return salleDtos;
+//    }
 
     public Integer getSalleId() {
         return salleId;
