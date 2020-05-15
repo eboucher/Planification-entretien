@@ -11,16 +11,14 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Entretien implements Serializable {
-    private UUID id = UUID.randomUUID();
+    private final UUID id = UUID.randomUUID();
     private EntretienStatus entretienStatus;
-    private Candidat candidat;
     private Creneau creneau;
+    private Candidat candidat;
 
     private List<Consultant> consultantsDisponibles;
-    private Integer consultantId;
-
-    // private List<SalleDto> salleDtos;
-    private Integer salleId;
+    private UUID consultantId;
+    private UUID salleId;
 
     public Entretien(CandidatDto candidatDto, List<ConsultantDto> consultantDtos, CreneauDto creneauDto) {
         this.candidat = CandidatMap.toModel(candidatDto);
@@ -36,7 +34,7 @@ public class Entretien implements Serializable {
 
     public void planifier() throws Exception {
         if(0 == consultantsDisponibles.size()) {
-            throw new Exception("");
+            throw new Exception("Aucun consultant de disponible");
         }
         List<Consultant> consultantDispoCompetent = consultantsDisponibles
             .stream()
@@ -62,8 +60,16 @@ public class Entretien implements Serializable {
         return this.candidat;
     }
 
-    public Integer getConsultantId() {
+    public UUID getConsultantId() {
         return consultantId;
+    }
+
+    public UUID getSalleId() {
+        return salleId;
+    }
+
+    public void setSalleId(UUID salleId) {
+        this.salleId = salleId;
     }
 
     public List<Consultant> getConsultantsDisponibles() {
@@ -72,17 +78,5 @@ public class Entretien implements Serializable {
 
     public Creneau getCreneau() {
         return creneau;
-    }
-
-//    public List<SalleDto> getSalleDtos() {
-//        return salleDtos;
-//    }
-
-    public Integer getSalleId() {
-        return salleId;
-    }
-
-    public void setSalleId(Integer salleId) {
-        this.salleId = salleId;
     }
 }

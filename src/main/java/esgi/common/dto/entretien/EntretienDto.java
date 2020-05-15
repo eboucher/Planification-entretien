@@ -61,4 +61,15 @@ public class EntretienDto {
     public void setEntretienStatus(EntretienStatus entretienStatus) {
         this.entretienStatus = entretienStatus;
     }
+
+    @Override
+    public String toString() {
+        return "EntretienDto{" +
+            "id='" + id + '\'' +
+            ", candidat=" + candidat +
+            ", consultantsDisponibles=" + consultantsDisponibles +
+            ", creneau=" + creneau +
+            ", entretienStatus=" + entretienStatus +
+            '}';
+    }
 }

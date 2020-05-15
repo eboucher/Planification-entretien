@@ -3,6 +3,6 @@ package esgi.model.common;
 public interface Repository<Entity> {
 
     Entity findById(String id) throws Exception;
-    Entity save(Entity objectSaved);
+    Entity save(Entity objectSaved) throws Exception;
 
 }

@@ -20,7 +20,6 @@ public class AnnulerEntretien {
         entretien.annuler();
 
         EntretienDto entretienDtoModified = EntretienMap.toDto(entretien);
-
         entretienRepository.save(entretienDtoModified);
     }
 

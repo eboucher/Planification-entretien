@@ -7,7 +7,9 @@ import esgi.model.entretien.CandidatRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CandidatFake implements CandidatRepository {
 
@@ -19,7 +21,7 @@ public class CandidatFake implements CandidatRepository {
             .stream()
             .filter(candidatDto -> candidatDto.getDisponibilites().contains(creneau))
             .collect(Collectors.toList());
-        if(candidatDtos.isEmpty())
+        if(!candidatDtos.isEmpty())
             return candidatDtos;
         else
             throw new Exception("Pas de candidat disponible");
@@ -38,8 +40,16 @@ public class CandidatFake implements CandidatRepository {
     }
 
     @Override
-    public CandidatDto save(CandidatDto objectSaved) {
-        candidatDtos.add(objectSaved);
+    public CandidatDto save(CandidatDto objectSaved) throws Exception {
+        OptionalInt index = IntStream.range(0, candidatDtos.size())
+            .filter(value -> objectSaved.getId().equals(candidatDtos.get(value).getId()))
+            .findFirst();
+
+        if(index.isPresent()) {
+            candidatDtos.set(index.getAsInt(), objectSaved);
+        } else {
+            candidatDtos.add(objectSaved);
+        }
         return objectSaved;
     }
 }

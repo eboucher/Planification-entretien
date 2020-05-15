@@ -7,7 +7,9 @@ import esgi.model.entretien.SalleRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class SalleFake implements SalleRepository {
 
@@ -26,8 +28,16 @@ public class SalleFake implements SalleRepository {
     }
 
     @Override
-    public SalleDto save(SalleDto objectSaved) {
-        salleDtos.add(objectSaved);
+    public SalleDto save(SalleDto objectSaved) throws Exception {
+        OptionalInt index = IntStream.range(0, salleDtos.size())
+            .filter(value -> objectSaved.getId().equals(salleDtos.get(value).getId()))
+            .findFirst();
+
+        if(index.isPresent()) {
+            salleDtos.set(index.getAsInt(), objectSaved);
+        } else {
+            salleDtos.add(objectSaved);
+        }
         return objectSaved;
     }
 

@@ -6,6 +6,7 @@ import esgi.model.entretien.ConsultantRepository;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ConsultantFake implements ConsultantRepository {
 
@@ -16,9 +17,9 @@ public class ConsultantFake implements ConsultantRepository {
         List<ConsultantDto> consultantDtos = this.consultantDtos
             .stream()
             .filter(consultantDto -> consultantDto.getDisponibilites().contains(creneau))
-        .collect(Collectors.toList());
+            .collect(Collectors.toList());
 
-        if(consultantDtos.isEmpty())
+        if(!consultantDtos.isEmpty())
             return consultantDtos;
         else
             throw new Exception("Pas de consultant disponible");
@@ -37,8 +38,16 @@ public class ConsultantFake implements ConsultantRepository {
     }
 
     @Override
-    public ConsultantDto save(ConsultantDto objectSaved) {
-        consultantDtos.add(objectSaved);
+    public ConsultantDto save(ConsultantDto objectSaved) throws Exception {
+        OptionalInt index = IntStream.range(0, consultantDtos.size())
+            .filter(value -> objectSaved.getId().equals(consultantDtos.get(value).getId()))
+            .findFirst();
+
+        if(index.isPresent()) {
+            consultantDtos.set(index.getAsInt(), objectSaved);
+        } else {
+            consultantDtos.add(objectSaved);
+        }
         return objectSaved;
     }
 

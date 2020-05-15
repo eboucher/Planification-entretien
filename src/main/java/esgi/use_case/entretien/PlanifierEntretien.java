@@ -8,6 +8,7 @@ import esgi.common.dto.salle.SalleDto;
 import esgi.model.entretien.*;
 
 import java.util.List;
+import java.util.UUID;
 
 public class PlanifierEntretien {
 
@@ -43,7 +44,7 @@ public class PlanifierEntretien {
         // Appeler reserverSalle
         List<SalleDto> sallesDisponibles = this.salleRepository.findSallesDisponibles(creneauDto);
         // Prendre l'id de la salle reservé, setter dans l'entretien
-        entretien.setSalleId(sallesDisponibles.get(0).getId());
+        entretien.setSalleId(UUID.fromString(sallesDisponibles.get(0).getId()));
 
         // Mapping l'entité => entity -> dto
         EntretienDto entretienDto = EntretienMap.toDto(entretien);

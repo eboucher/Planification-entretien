@@ -6,6 +6,8 @@ import esgi.model.entretien.EntretienRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
 public class EntretienFake implements EntretienRepository {
 
@@ -24,8 +26,16 @@ public class EntretienFake implements EntretienRepository {
     }
 
     @Override
-    public EntretienDto save(EntretienDto objectSaved) {
-        entretienDtos.add(objectSaved);
+    public EntretienDto save(EntretienDto objectSaved) throws Exception {
+        OptionalInt index = IntStream.range(0, entretienDtos.size())
+            .filter(value -> objectSaved.getId().equals(entretienDtos.get(value).getId()))
+            .findFirst();
+
+        if(index.isPresent()) {
+            entretienDtos.set(index.getAsInt(), objectSaved);
+        } else {
+            entretienDtos.add(objectSaved);
+        }
         return objectSaved;
     }
 }

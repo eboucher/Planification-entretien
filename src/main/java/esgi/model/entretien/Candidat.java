@@ -3,21 +3,22 @@ package esgi.model.entretien;
 import esgi.common.dto.creneau.CreneauDto;
 
 import java.util.List;
+import java.util.UUID;
 
 class Candidat {
-    private Integer id;
+    private UUID id;
     private List<String> competences;
     private String cv;
     private List<CreneauDto> disponibilites;
 
-    public Candidat(Integer id, List<String> competences, String cv, List<CreneauDto> disponibilites) {
+    public Candidat(UUID id, List<String> competences, String cv, List<CreneauDto> disponibilites) {
         this.id = id;
         this.competences = competences;
         this.cv = cv;
         this.disponibilites = disponibilites;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
