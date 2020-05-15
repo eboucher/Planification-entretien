@@ -5,21 +5,22 @@ import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
 import esgi.model.common.EntretienStatus;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class Entretien {
+public class Entretien implements Serializable {
     private UUID id = UUID.randomUUID();
     private EntretienStatus entretienStatus;
     private Candidat candidat;
     private Creneau creneau;
 
     private List<Consultant> consultantsDisponibles;
-    private Consultant consultant;
+    private Integer consultantId;
 
     // private List<SalleDto> salleDtos;
-    private Salle salle;
+    private Integer salleId;
 
     public Entretien(CandidatDto candidatDto, List<ConsultantDto> consultantDtos, CreneauDto creneauDto) {
         this.candidat = CandidatMap.toModel(candidatDto);
@@ -27,8 +28,7 @@ public class Entretien {
         this.creneau = CreneauMap.toModel(creneauDto);
     }
 
-    public Entretien(UUID id, Candidat candidat, List<Consultant> consultant, Creneau creneau) {
-        this.id = id;
+    public Entretien(Candidat candidat, List<Consultant> consultant, Creneau creneau) {
         this.candidat = candidat;
         this.consultantsDisponibles = consultant;
         this.creneau = creneau;
@@ -42,7 +42,7 @@ public class Entretien {
             .stream()
             .filter(consultant -> consultant.getCompetences().stream().anyMatch(consultantCompetences -> candidat.getCompetences().contains(consultantCompetences)))
             .collect(Collectors.toList());
-        consultant = consultantDispoCompetent.get(0);
+        consultantId = consultantDispoCompetent.get(0).getId();
         entretienStatus = EntretienStatus.PLANIFIER;
     }
 
@@ -62,6 +62,10 @@ public class Entretien {
         return this.candidat;
     }
 
+    public Integer getConsultantId() {
+        return consultantId;
+    }
+
     public List<Consultant> getConsultantsDisponibles() {
         return this.consultantsDisponibles;
     }
@@ -70,11 +74,15 @@ public class Entretien {
         return creneau;
     }
 
-    public Consultant getConsultant() {
-        return consultant;
+//    public List<SalleDto> getSalleDtos() {
+//        return salleDtos;
+//    }
+
+    public Integer getSalleId() {
+        return salleId;
     }
 
-    public Salle getSalle() {
-        return salle;
+    public void setSalleId(Integer salleId) {
+        this.salleId = salleId;
     }
 }

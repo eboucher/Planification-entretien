@@ -4,9 +4,9 @@ import esgi.common.dto.candidat.CandidatDto;
 import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
 import esgi.common.dto.entretien.EntretienDto;
+import esgi.model.common.EntretienStatus;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class EntretienMap {
@@ -18,7 +18,8 @@ public class EntretienMap {
             .map(ConsultantMap::toDto)
             .collect(Collectors.toList());
         CreneauDto creneauDto = CreneauMap.toDto(entretien.getCreneau());
-        return new EntretienDto(entretien.getId().toString(), entretien.getEntretienStatus(), candidatDto, creneauDto, consultantDtoList, entretien.getSalle());
+        EntretienStatus entretienStatus = entretien.getEntretienStatus();
+        return new EntretienDto(entretien.getId().toString(), candidatDto, consultantDtoList, creneauDto, entretienStatus);
     }
 
     public static Entretien toModel(EntretienDto entretienDto) {
@@ -28,6 +29,6 @@ public class EntretienMap {
             .map(ConsultantMap::toModel)
             .collect(Collectors.toList());
         Creneau creneau = CreneauMap.toModel(entretienDto.getCreneau());
-        return new Entretien(UUID.fromString(entretienDto.getId()),candidatList, consultantList, creneau);
+        return new Entretien(candidatList, consultantList, creneau);
     }
 }

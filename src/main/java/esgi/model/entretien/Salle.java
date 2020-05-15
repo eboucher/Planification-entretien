@@ -3,23 +3,21 @@ package esgi.model.entretien;
 import esgi.common.dto.creneau.CreneauDto;
 
 import java.util.List;
-import java.util.UUID;
 
 class Salle {
 
-    private UUID id;
-    private List<Creneau> disponibilites;
+    private Integer id;
+    private List<CreneauDto> disponibilites;
 
-    public Salle(UUID id, List<Creneau> disponibilites) {
-        this.id = id;
+    public Salle(List<CreneauDto> disponibilites) {
         this.disponibilites = disponibilites;
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public List<Creneau> getDisponibilites() {
+    public List<CreneauDto> getDisponibilites() {
         return disponibilites;
     }
 }

@@ -3,23 +3,23 @@ package esgi.common.dto.entretien;
 import esgi.common.dto.candidat.CandidatDto;
 import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
-import esgi.common.dto.salle.SalleDto;
+import esgi.model.common.EntretienStatus;
+
+import java.util.List;
 
 public class EntretienDto {
     private String id;
-    private String entretienStatus;
     private CandidatDto candidat;
+    private List<ConsultantDto> consultantsDisponibles;
     private CreneauDto creneau;
-    private ConsultantDto consultantDto;
-    private SalleDto salle;
+    private EntretienStatus entretienStatus;
 
-    public EntretienDto(String id, String entretienStatus, CandidatDto candidat, CreneauDto creneau, ConsultantDto consultantDto, SalleDto salle) {
+    public EntretienDto(String id, CandidatDto candidat, List<ConsultantDto> consultant, CreneauDto creneau, EntretienStatus entretienStatus) {
         this.id = id;
-        this.entretienStatus = entretienStatus;
         this.candidat = candidat;
+        this.consultantsDisponibles = consultant;
         this.creneau = creneau;
-        this.consultantDto = consultantDto;
-        this.salle = salle;
+        this.entretienStatus = entretienStatus;
     }
 
     public String getId() {
@@ -30,20 +30,20 @@ public class EntretienDto {
         this.id = id;
     }
 
-    public String getEntretienStatus() {
-        return entretienStatus;
-    }
-
-    public void setEntretienStatus(String entretienStatus) {
-        this.entretienStatus = entretienStatus;
-    }
-
     public CandidatDto getCandidat() {
         return candidat;
     }
 
     public void setCandidat(CandidatDto candidat) {
         this.candidat = candidat;
+    }
+
+    public List<ConsultantDto> getConsultantsDisponibles() {
+        return consultantsDisponibles;
+    }
+
+    public void setConsultant(List<ConsultantDto> consultant) {
+        this.consultantsDisponibles = consultant;
     }
 
     public CreneauDto getCreneau() {
@@ -54,31 +54,11 @@ public class EntretienDto {
         this.creneau = creneau;
     }
 
-    public ConsultantDto getConsultantDto() {
-        return consultantDto;
+    public EntretienStatus getEntretienStatus() {
+        return entretienStatus;
     }
 
-    public void setConsultantDto(ConsultantDto consultantDto) {
-        this.consultantDto = consultantDto;
-    }
-
-    public SalleDto getSalle() {
-        return salle;
-    }
-
-    public void setSalle(SalleDto salle) {
-        this.salle = salle;
-    }
-
-    @Override
-    public String toString() {
-        return "EntretienDto{" +
-            "id='" + id + '\'' +
-            ", entretienStatus='" + entretienStatus + '\'' +
-            ", candidat=" + candidat +
-            ", creneau=" + creneau +
-            ", consultantDto=" + consultantDto +
-            ", salle=" + salle +
-            '}';
+    public void setEntretienStatus(EntretienStatus entretienStatus) {
+        this.entretienStatus = entretienStatus;
     }
 }
