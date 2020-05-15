@@ -3,10 +3,12 @@ package common.dto.consultant;
 import java.util.List;
 
 public class ConsultantDto {
+    private Integer id;
     private String nom;
     private List<String> competences;
 
-    public ConsultantDto(String nom, List<String> competences) {
+    public ConsultantDto(Integer id, String nom, List<String> competences) {
+        this.id = id;
         this.nom = nom;
         this.competences = competences;
     }

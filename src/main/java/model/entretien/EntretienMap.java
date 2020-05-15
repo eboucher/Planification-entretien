@@ -17,7 +17,7 @@ public class EntretienMap {
             .map(ConsultantMap::toDto)
             .collect(Collectors.toList());
         CreneauDto creneauDto = CreneauMap.toDto(entretien.getCreneau());
-        return new EntretienDto(candidatDto, consultantDtoList, creneauDto);
+        return new EntretienDto(entretien.getId(), candidatDto, consultantDtoList, creneauDto);
     }
 
     public static Entretien toModel(EntretienDto entretienDto) {
@@ -28,6 +28,6 @@ public class EntretienMap {
             .collect(Collectors.toList());
         Creneau creneau = CreneauMap.toModel(entretienDto.getCreneau());
         //TODO: id ?
-        return new Entretien(candidatList, consultantList, creneau);
+        return new Entretien(entretienDto.getId(), candidatList, consultantList, creneau);
     }
 }
