@@ -1,8 +1,5 @@
 package model.entretien;
 
-import common.dto.candidat.CandidatDto;
-import common.dto.creneau.CreneauDto;
-
 import java.util.List;
 
 class Candidat {
