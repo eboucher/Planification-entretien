@@ -26,7 +26,7 @@ public class CandidatFake implements CandidatRepository {
     }
 
     @Override
-    public CandidatDto findById(Integer id) throws Exception{
+    public CandidatDto findById(String id) throws Exception{
         Optional<CandidatDto> candidatDtoOptionnal = candidatDtos
             .stream()
             .filter(candidatDto -> id.equals(candidatDto.getId()))

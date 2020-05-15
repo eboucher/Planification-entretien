@@ -14,7 +14,7 @@ public class SalleFake implements SalleRepository {
     public List<SalleDto> salleDtos = new ArrayList<>();
 
     @Override
-    public SalleDto findById(Integer id) throws Exception {
+    public SalleDto findById(String id) throws Exception {
         Optional<SalleDto> salleDtoOptional = salleDtos
             .stream()
             .filter(salleDto -> id.equals(salleDto.getId()))

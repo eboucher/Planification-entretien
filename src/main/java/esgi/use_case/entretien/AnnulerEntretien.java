@@ -13,7 +13,7 @@ public class AnnulerEntretien {
         this.entretienRepository = entretienRepository;
     }
 
-    public void annuler(Integer entretienId) throws Exception {
+    public void annuler(String entretienId) throws Exception {
         EntretienDto entretienDto = this.entretienRepository.findById(entretienId);
 
         Entretien entretien = EntretienMap.toModel(entretienDto);

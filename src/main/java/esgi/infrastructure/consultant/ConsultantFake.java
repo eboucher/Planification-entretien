@@ -25,7 +25,7 @@ public class ConsultantFake implements ConsultantRepository {
     }
 
     @Override
-    public ConsultantDto findById(Integer id) throws Exception {
+    public ConsultantDto findById(String id) throws Exception {
         Optional<ConsultantDto> consultantDtoOptional = consultantDtos
             .stream()
             .filter(consultantDto -> id.equals(consultantDto.getId()))

@@ -3,27 +3,30 @@ package esgi.common.dto.entretien;
 import esgi.common.dto.candidat.CandidatDto;
 import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
+import esgi.model.common.EntretienStatus;
 
 import java.util.List;
 
 public class EntretienDto {
-    private Integer id;
+    private String id;
     private CandidatDto candidat;
     private List<ConsultantDto> consultantsDisponibles;
     private CreneauDto creneau;
+    private EntretienStatus entretienStatus;
 
-    public EntretienDto(Integer id, CandidatDto candidat, List<ConsultantDto> consultant, CreneauDto creneau) {
+    public EntretienDto(String id, CandidatDto candidat, List<ConsultantDto> consultant, CreneauDto creneau, EntretienStatus entretienStatus) {
         this.id = id;
         this.candidat = candidat;
         this.consultantsDisponibles = consultant;
         this.creneau = creneau;
+        this.entretienStatus = entretienStatus;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,5 +52,13 @@ public class EntretienDto {
 
     public void setCreneau(CreneauDto creneau) {
         this.creneau = creneau;
+    }
+
+    public EntretienStatus getEntretienStatus() {
+        return entretienStatus;
+    }
+
+    public void setEntretienStatus(EntretienStatus entretienStatus) {
+        this.entretienStatus = entretienStatus;
     }
 }

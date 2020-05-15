@@ -50,7 +50,7 @@ public class Entretien implements Serializable {
         this.entretienStatus = EntretienStatus.ANNULER;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 

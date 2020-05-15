@@ -28,7 +28,7 @@ public class PlanifierEntretien {
         this.salleRepository = salleRepository;
     }
 
-    public void planifier(Integer candidatId, CreneauDto creneauDto) throws Exception {
+    public void planifier(String candidatId, CreneauDto creneauDto) throws Exception {
         // GIVEN
         CandidatDto candidatDto = candidatRepository.findById(candidatId);
         List<ConsultantDto> consultantsDisponiblesDtos = consultantRepository.findConsultantsDisponibles(creneauDto);
