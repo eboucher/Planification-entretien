@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class ConsultantFake implements ConsultantRepository {
 
-    List<ConsultantDto> consultantDtos = new ArrayList<>();
+    public List<ConsultantDto> consultantDtos = new ArrayList<>();
 
     @Override
     public List<ConsultantDto> findConsultantsDisponibles(CreneauDto creneau) throws Exception {

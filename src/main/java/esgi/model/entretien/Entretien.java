@@ -5,11 +5,13 @@ import esgi.common.dto.consultant.ConsultantDto;
 import esgi.common.dto.creneau.CreneauDto;
 import esgi.model.common.EntretienStatus;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class Entretien {
-    private int id;
+public class Entretien implements Serializable {
+    private UUID id = UUID.randomUUID();
     private EntretienStatus entretienStatus;
     private Candidat candidat;
     private Creneau creneau;

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class CandidatFake implements CandidatRepository {
 
-    List<CandidatDto> candidatDtos = new ArrayList<>();
+    public List<CandidatDto> candidatDtos = new ArrayList<>();
 
     @Override
     public List<CandidatDto> findCandidatsDisponibles(CreneauDto creneau) throws Exception {

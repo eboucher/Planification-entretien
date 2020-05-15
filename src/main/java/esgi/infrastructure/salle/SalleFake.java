@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class SalleFake implements SalleRepository {
 
-    List<SalleDto> salleDtos = new ArrayList<>();
+    public List<SalleDto> salleDtos = new ArrayList<>();
 
     @Override
     public SalleDto findById(Integer id) throws Exception {

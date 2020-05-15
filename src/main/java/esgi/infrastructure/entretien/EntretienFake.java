@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class EntretienFake implements EntretienRepository {
 
-    List<EntretienDto> entretienDtos = new ArrayList<>();
+    public List<EntretienDto> entretienDtos = new ArrayList<>();
 
     @Override
     public EntretienDto findById(Integer id) throws Exception {
