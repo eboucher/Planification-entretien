@@ -16,7 +16,7 @@ public class SalleMap {
     }
 
     public static Salle toModel(SalleDto salleDto) {
-        List<Creneau> creneauList = salleDto.g
+        List<Creneau> creneauList = salleDto.getDisponibilites()
             .stream()
             .map(CreneauMap::toModel)
             .collect(Collectors.toList());
